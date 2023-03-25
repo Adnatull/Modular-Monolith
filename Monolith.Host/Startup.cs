@@ -8,7 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
-namespace Monolith.Host
+namespace Module.Host
 {
     public class Startup
     {
@@ -38,10 +38,10 @@ namespace Monolith.Host
             services.AddTransient<IPostConfigureOptions<MvcOptions>, ModuleRoutingMvcOptionsPostConfigure>();
 
             // Adds module1 with the route prefix module-1
-            services.AddModule<Module1.Startup>("module-1");
+            services.AddModule<Monolith.Module1.Startup>("module-1");
 
             // Adds module2 with the route prefix module-2
-            services.AddModule<Module2.Startup>("module-2");
+            services.AddModule<Monolith.Module2.Startup>("module-2");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

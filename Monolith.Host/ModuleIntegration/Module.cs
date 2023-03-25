@@ -1,7 +1,7 @@
 using System.Reflection;
-using Monolith.Shared;
+using Module.Shared;
 
-namespace Monolith.Host
+namespace Module.Host
 {
     /// <summary>
     /// Contains information about a module

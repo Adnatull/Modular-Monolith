@@ -14,7 +14,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Monolith.Module1.Shared\Monolith.Module1.Shared.csproj" />
-        <ProjectReference Include="..\Monolith.Shared\Monolith.Shared.csproj" />
+        <ProjectReference Include="..\Monolith.Shared\Module.Shared.csproj" />
     </ItemGroup>
 
 </Project>

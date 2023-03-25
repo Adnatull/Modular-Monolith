@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Monolith.Shared
+namespace Module.Shared
 {
     public interface IStartup
     {

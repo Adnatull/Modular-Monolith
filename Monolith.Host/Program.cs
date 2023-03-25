@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace Monolith.Host
+namespace Module.Host
 {
     public class Program
     {
