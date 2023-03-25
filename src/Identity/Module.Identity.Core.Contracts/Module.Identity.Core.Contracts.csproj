@@ -8,9 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Monolith.Shared\Module.Shared.csproj" />
-    <ProjectReference Include="..\Module.Identity.Core.Contracts\Module.Identity.Core.Contracts.csproj" />
-    <ProjectReference Include="..\Module.Identity.Core\Module.Identity.Core.csproj" />
-    <ProjectReference Include="..\Module.Identity.Infrastructure\Module.Identity.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
