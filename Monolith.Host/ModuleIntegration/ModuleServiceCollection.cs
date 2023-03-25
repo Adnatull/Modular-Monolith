@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Module.Shared;
 
@@ -13,7 +14,7 @@ namespace Module.Host
         /// <param name="routePrefix">The prefix of the routes to the module.</param>
         /// <typeparam name="TStartup">The type of the startup class of the module.</typeparam>
         /// <returns></returns>
-        public static IServiceCollection AddModule<TStartup>(this IServiceCollection services, string routePrefix)
+        public static IServiceCollection AddModule<TStartup>(this IServiceCollection services, string routePrefix, IConfiguration configuration)
             where TStartup : IStartup, new()
         {
             // Register assembly in MVC so it can find controllers of the module
@@ -21,6 +22,7 @@ namespace Module.Host
                 manager.ApplicationParts.Add(new AssemblyPart(typeof(TStartup).Assembly)));
 
             var startup = new TStartup();
+            startup.ConfigureConstructor(configuration);
             startup.ConfigureServices(services);
 
             services.AddSingleton(new Module(routePrefix, startup));

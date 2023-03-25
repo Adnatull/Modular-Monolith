@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
@@ -15,6 +16,13 @@ namespace Module.Host
 {
     public class Startup
     {
+
+        public Startup(IConfiguration configuration) {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -41,13 +49,13 @@ namespace Module.Host
             services.AddTransient<IPostConfigureOptions<MvcOptions>, ModuleRoutingMvcOptionsPostConfigure>();
 
             // Adds module1 with the route prefix module-1
-            services.AddModule<Module1.Startup>("module-1");
+            services.AddModule<Module1.Startup>("module-1", Configuration);
 
             // Adds module2 with the route prefix module-2
-            services.AddModule<Module2.Startup>("module-2");
+            services.AddModule<Module2.Startup>("module-2", Configuration);
 
             // Adds module2 with the route prefix identity
-            services.AddModule<IdentityModule.Startup>("identity");
+            services.AddModule<IdentityModule.Startup>("identity", Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
