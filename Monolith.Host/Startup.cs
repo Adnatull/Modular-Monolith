@@ -7,6 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using IdentityModule = Module.Identity;
+using Module1 = Module.Module1;
+using Module2 = Module.Module2;
 
 namespace Module.Host
 {
@@ -38,10 +41,13 @@ namespace Module.Host
             services.AddTransient<IPostConfigureOptions<MvcOptions>, ModuleRoutingMvcOptionsPostConfigure>();
 
             // Adds module1 with the route prefix module-1
-            services.AddModule<Monolith.Module1.Startup>("module-1");
+            services.AddModule<Module1.Startup>("module-1");
 
             // Adds module2 with the route prefix module-2
-            services.AddModule<Monolith.Module2.Startup>("module-2");
+            services.AddModule<Module2.Startup>("module-2");
+
+            // Adds module2 with the route prefix identity
+            services.AddModule<IdentityModule.Startup>("identity");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using Monolith.Module1.Shared;
+using Module.Module1.Shared;
 
-namespace Monolith.Module2
+namespace Module.Module2
 {
     [Route("[module]/[controller]")]
     internal class TestController : Controller

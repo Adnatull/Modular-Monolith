@@ -1,6 +1,6 @@
-using Monolith.Module1.Shared;
+using Module.Module1.Shared;
 
-namespace Monolith.Module1
+namespace Module.Module1
 {
     internal class TestService : ITestService
     {

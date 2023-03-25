@@ -5,8 +5,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Monolith.Module1\Monolith.Module1.csproj" />
-        <ProjectReference Include="..\Monolith.Module2\Monolith.Module2.csproj" />
+        <ProjectReference Include="..\Monolith.Module1\Module.Module1.csproj" />
+        <ProjectReference Include="..\Monolith.Module2\Module.Module2.csproj" />
+        <ProjectReference Include="..\src\Identity\Module.Identity\Module.Identity.csproj" />
     </ItemGroup>
 
     <ItemGroup>

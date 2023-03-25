@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Monolith.Module1.Shared;
+using Module.Module1.Shared;
 using IStartup = Module.Shared.IStartup;
 
-namespace Monolith.Module1
+namespace Module.Module1
 {
     public class Startup : IStartup
     {

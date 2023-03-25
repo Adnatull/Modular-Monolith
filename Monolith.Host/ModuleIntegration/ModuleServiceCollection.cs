@@ -23,7 +23,7 @@ namespace Module.Host
             var startup = new TStartup();
             startup.ConfigureServices(services);
 
-            services.AddSingleton(new Module.Host.Module(routePrefix, startup));
+            services.AddSingleton(new Module(routePrefix, startup));
 
             return services;
         }

@@ -5,13 +5,13 @@ VisualStudioVersion = 17.6.33417.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Host", "Monolith.Host\Module.Host.csproj", "{97EFF201-2B8C-4C12-9B08-B41A483E5514}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monolith.Module1", "Monolith.Module1\Monolith.Module1.csproj", "{FC3BE009-BC76-41AD-A840-6D9ACE2F6BF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Module1", "Monolith.Module1\Module.Module1.csproj", "{FC3BE009-BC76-41AD-A840-6D9ACE2F6BF2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Shared", "Monolith.Shared\Module.Shared.csproj", "{B9EBDF97-0EC6-46DD-8DC3-DDAE683D8443}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monolith.Module2", "Monolith.Module2\Monolith.Module2.csproj", "{3E32D39E-5961-4A89-A664-07DCD18D35E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Module2", "Monolith.Module2\Module.Module2.csproj", "{3E32D39E-5961-4A89-A664-07DCD18D35E3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monolith.Module1.Shared", "Monolith.Module1.Shared\Monolith.Module1.Shared.csproj", "{2B0CAD70-637B-4083-BF9B-2B99AF7FBF0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Module1.Shared", "Monolith.Module1.Shared\Module.Module1.Shared.csproj", "{2B0CAD70-637B-4083-BF9B-2B99AF7FBF0D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Module1", "Module1", "{8849A697-4DD0-4F03-AB8E-C194771FD5F4}"
 EndProject
@@ -20,6 +20,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{A6749C00-8044-40BF-84D8-E4CA9A452469}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Identity", "src\Identity\Module.Identity\Module.Identity.csproj", "{1A88C7F0-61D7-4B78-BD72-721FF9A2D1FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Identity.Core", "src\Identity\Module.Identity.Core\Module.Identity.Core.csproj", "{D9D4A685-EAA1-4032-AFE1-CE21D6DD6261}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Identity.Infrastructure", "src\Identity\Module.Identity.Infrastructure\Module.Identity.Infrastructure.csproj", "{65863E9F-9DF6-446B-A44F-AE8142B3B161}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{1A88C7F0-61D7-4B78-BD72-721FF9A2D1FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A88C7F0-61D7-4B78-BD72-721FF9A2D1FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A88C7F0-61D7-4B78-BD72-721FF9A2D1FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9D4A685-EAA1-4032-AFE1-CE21D6DD6261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9D4A685-EAA1-4032-AFE1-CE21D6DD6261}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9D4A685-EAA1-4032-AFE1-CE21D6DD6261}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9D4A685-EAA1-4032-AFE1-CE21D6DD6261}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65863E9F-9DF6-446B-A44F-AE8142B3B161}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65863E9F-9DF6-446B-A44F-AE8142B3B161}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65863E9F-9DF6-446B-A44F-AE8142B3B161}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65863E9F-9DF6-446B-A44F-AE8142B3B161}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +72,8 @@ Global
 		{3E32D39E-5961-4A89-A664-07DCD18D35E3} = {C514EE23-4534-4035-AC24-3795054A4FF4}
 		{2B0CAD70-637B-4083-BF9B-2B99AF7FBF0D} = {8849A697-4DD0-4F03-AB8E-C194771FD5F4}
 		{1A88C7F0-61D7-4B78-BD72-721FF9A2D1FF} = {A6749C00-8044-40BF-84D8-E4CA9A452469}
+		{D9D4A685-EAA1-4032-AFE1-CE21D6DD6261} = {A6749C00-8044-40BF-84D8-E4CA9A452469}
+		{65863E9F-9DF6-446B-A44F-AE8142B3B161} = {A6749C00-8044-40BF-84D8-E4CA9A452469}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E131C59D-D2D8-41E4-9E58-254430BBC394}

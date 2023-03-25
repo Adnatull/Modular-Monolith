@@ -1,4 +1,4 @@
-namespace Monolith.Module1.Shared
+namespace Module.Module1.Shared
 {
     public interface ITestService
     {
