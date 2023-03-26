@@ -5,6 +5,6 @@ namespace Module.Identity.Core.Entities {
         public ApplicationRole(string name) : base(name) {
 
         }
-        public string Description { get; set; }
+        public string? Description { get; set; }
     }
 }

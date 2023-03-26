@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Module.Identity.MigrationManager;
 
 namespace Module.Host
 {
@@ -7,7 +8,7 @@ namespace Module.Host
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build().IdentityMigrateAndSeed().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
