@@ -19,11 +19,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Module2", "Module2", "{C514
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{A6749C00-8044-40BF-84D8-E4CA9A452469}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Identity", "src\Identity\Module.Identity\Module.Identity.csproj", "{1A88C7F0-61D7-4B78-BD72-721FF9A2D1FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Identity", "src\Identity\Module.Identity\Module.Identity.csproj", "{1A88C7F0-61D7-4B78-BD72-721FF9A2D1FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Identity.Core", "src\Identity\Module.Identity.Core\Module.Identity.Core.csproj", "{D9D4A685-EAA1-4032-AFE1-CE21D6DD6261}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Identity.Core", "src\Identity\Module.Identity.Core\Module.Identity.Core.csproj", "{D9D4A685-EAA1-4032-AFE1-CE21D6DD6261}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Identity.Infrastructure", "src\Identity\Module.Identity.Infrastructure\Module.Identity.Infrastructure.csproj", "{65863E9F-9DF6-446B-A44F-AE8142B3B161}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Identity.Infrastructure", "src\Identity\Module.Identity.Infrastructure\Module.Identity.Infrastructure.csproj", "{65863E9F-9DF6-446B-A44F-AE8142B3B161}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{49778253-A0F0-4A72-9E49-64238C36937C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FC3BE009-BC76-41AD-A840-6D9ACE2F6BF2} = {8849A697-4DD0-4F03-AB8E-C194771FD5F4}
+		{B9EBDF97-0EC6-46DD-8DC3-DDAE683D8443} = {49778253-A0F0-4A72-9E49-64238C36937C}
 		{3E32D39E-5961-4A89-A664-07DCD18D35E3} = {C514EE23-4534-4035-AC24-3795054A4FF4}
 		{2B0CAD70-637B-4083-BF9B-2B99AF7FBF0D} = {8849A697-4DD0-4F03-AB8E-C194771FD5F4}
 		{1A88C7F0-61D7-4B78-BD72-721FF9A2D1FF} = {A6749C00-8044-40BF-84D8-E4CA9A452469}
