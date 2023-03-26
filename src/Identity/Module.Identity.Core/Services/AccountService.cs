@@ -1,5 +1,5 @@
-﻿using Module.Identity.Core.Contracts.DataTransferObjects;
-using Module.Identity.Core.Contracts.Services;
+﻿using Module.Identity.Core.DataTransferObjects;
+using Module.Identity.Core.IServices;
 using Module.Shared.Response;
 
 namespace Module.Identity.Core.Services {

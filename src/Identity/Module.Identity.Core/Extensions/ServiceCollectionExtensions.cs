@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Module.Identity.Core.Contracts.Services;
+using Module.Identity.Core.IServices;
 using Module.Identity.Core.Services;
 
 namespace Module.Identity.Core.Extensions {
