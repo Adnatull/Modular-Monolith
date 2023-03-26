@@ -1,15 +1,17 @@
-﻿using Module.Identity.Core.Constants;
-using Module.Shared.Permissions;
+﻿using Module.Shared.Permissions;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Security.Claims;
+using ModuleShared = Module.Shared;
 
-namespace Module.Identity.Core.Permissions {
+namespace Module.Host.Permissions {
     public class PermissionHelper : IPermissionHelper
     {
         public List<Claim> GetAllPermissions()
         {
             var allPermissions = new List<Claim>();
-            var permissionClass = typeof(Module.Shared.Permissions.Permissions);
+            var permissionClass = typeof(ModuleShared.Permissions.Permissions);
             var allModulesPermissions = permissionClass.GetNestedTypes().Where(x => x.IsClass).ToList();
             foreach (var modulePermissions in allModulesPermissions)
             {

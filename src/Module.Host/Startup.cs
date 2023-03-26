@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -8,12 +6,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using Module.Host.Permissions;
+using Module.Shared.Permissions;
+using System;
+using System.Collections.Generic;
 using IdentityModule = Module.Identity;
-using Module1 = Module.Module1;
-using Module2 = Module.Module2;
 
-namespace Module.Host
-{
+namespace Module.Host {
     public class Startup
     {
 
@@ -56,6 +55,7 @@ namespace Module.Host
 
             // Adds module2 with the route prefix identity
             services.AddModule<IdentityModule.Startup>("identity", Configuration);
+            services.AddSingleton<IPermissionHelper, PermissionHelper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,4 +1,4 @@
-﻿namespace Module.Identity.Core.Constants {
+﻿namespace Module.Shared.Permissions {
     public class CustomClaimTypes {
         public const string Permission = "Permission";
     }
