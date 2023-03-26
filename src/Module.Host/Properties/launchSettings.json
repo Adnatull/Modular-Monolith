@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "ModularMonolith": {
+    "ModularModule": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

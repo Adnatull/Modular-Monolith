@@ -32,7 +32,7 @@ namespace Module.Host
                 options.SwaggerDoc("v1", new OpenApiInfo()
                 {
                     Version = "v1",
-                    Title = "Modular Monolith"
+                    Title = "Modular Module"
                 });
             });
 
@@ -84,7 +84,7 @@ namespace Module.Host
             app.UseSwaggerUI(options =>
             {
                 options.RoutePrefix = String.Empty;
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Modular Monolith V1");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Modular Module V1");
             });
         }
     }
