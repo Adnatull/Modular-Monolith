@@ -19,8 +19,6 @@ namespace Module.Identity {
         
         private IConfiguration? Configuration { get; set; }
         public void ConfigureServices(IServiceCollection services) {
-
-
             services.AddIdentity<ApplicationUser, ApplicationRole>(options => {
                 options.Password.RequireDigit = false;
                 options.Password.RequireNonAlphanumeric = false;

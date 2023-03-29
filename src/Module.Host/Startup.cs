@@ -1,22 +1,17 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Module.Host.Middleware;
 using Module.Host.Permissions;
-using Module.Identity.Core.Entities;
-using Module.Identity.Infrastructure.Context;
 using Module.Shared.Permissions;
 using Serilog;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using IdentityModule = Module.Identity;
 
 namespace Module.Host {
@@ -109,6 +104,7 @@ namespace Module.Host {
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseMiddleware<ApiErrorHandlerMiddleware>();
             app.UseSerilogRequestLogging();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
