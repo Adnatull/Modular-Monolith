@@ -3,3 +3,4 @@ bin/
 obj/
 /.vs/ModularModule/FileContentIndex
 /.vs
+/src/Module.Host/logs

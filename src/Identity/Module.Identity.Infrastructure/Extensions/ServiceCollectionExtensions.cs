@@ -19,15 +19,7 @@ namespace Module.Identity.Infrastructure.Extensions {
                                             b => b.MigrationsAssembly(typeof(IdentityContext).Assembly.FullName)));
 
 
-            services.AddIdentity<ApplicationUser, ApplicationRole>(options => {
-                options.Password.RequireDigit = false;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
-                options.Password.RequiredLength = 4;
-
-            })
-                .AddEntityFrameworkStores<IdentityContext>()
-                .AddDefaultTokenProviders();
+            
 
             services.AddScoped<IApplicationUserManager, ApplicationUserManager>();            
 
