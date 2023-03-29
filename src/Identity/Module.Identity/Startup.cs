@@ -11,7 +11,7 @@ namespace Module.Identity {
     public class Startup : IStartup {
 
         
-        private IConfiguration Configuration { get; set; }
+        private IConfiguration? Configuration { get; set; }
         public void ConfigureServices(IServiceCollection services) {
             services.AddIdentityCore();
             services.AddIdentityInfrastructure(Configuration);
