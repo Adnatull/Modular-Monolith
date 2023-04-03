@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Module2", "Module2", "{C514
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{A6749C00-8044-40BF-84D8-E4CA9A452469}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Identity", "src\Identity\Module.Identity\Module.Identity.csproj", "{1A88C7F0-61D7-4B78-BD72-721FF9A2D1FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Identity.WebApi", "src\Identity\Module.Identity\Module.Identity.WebApi.csproj", "{1A88C7F0-61D7-4B78-BD72-721FF9A2D1FF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Identity.Core", "src\Identity\Module.Identity.Core\Module.Identity.Core.csproj", "{D9D4A685-EAA1-4032-AFE1-CE21D6DD6261}"
 EndProject
