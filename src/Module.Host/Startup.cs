@@ -75,13 +75,7 @@ namespace Module.Host {
             });            
 
             // Register a convention allowing to us to prefix routes to modules.
-            services.AddTransient<IPostConfigureOptions<MvcOptions>, ModuleRoutingMvcOptionsPostConfigure>();
-
-            // Adds module1 with the route prefix module-1
-            services.AddModule<Module1.Startup>("module-1", Configuration);
-
-            // Adds module2 with the route prefix module-2
-            services.AddModule<Module2.Startup>("module-2", Configuration);
+            services.AddTransient<IPostConfigureOptions<MvcOptions>, ModuleRoutingMvcOptionsPostConfigure>();         
 
             
             services.AddSingleton<IPermissionHelper, PermissionHelper>();
