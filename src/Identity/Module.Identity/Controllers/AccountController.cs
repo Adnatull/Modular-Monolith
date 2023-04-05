@@ -4,7 +4,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Module.Identity.Core.DataTransferObjects;
 using Module.Identity.Core.IServices;
-using Module.Shared.Extensions;
 using Module.Shared.Response;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
@@ -24,17 +23,12 @@ namespace Module.Identity.Controllers {
         {
             _accountService = accountService;
             _configuration = configuration;
-        }
+        }       
 
         [HttpPost, Route("login")]
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginUserDto loginUserDto) {
             try {
-
-                if (!ModelState.IsValid) {
-                    return BadRequest(ModelState.ToValidationErrorResponse());
-                }
-
                 var rs = await _accountService.CheckPasswordAsync(loginUserDto);
                 if (rs.Succeeded) {
                     var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetValue<string>("Jwt:Key")));
@@ -73,9 +67,6 @@ namespace Module.Identity.Controllers {
         [AllowAnonymous]
         [ProducesResponseType(typeof(Response<string>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> Register(RegisterUserDto registerUserDto) {
-            if (!ModelState.IsValid) {
-                return BadRequest(ModelState.ToValidationErrorResponse());
-            }
             var rs = await _accountService.RegisterUserAsync(registerUserDto);
 
             if (rs.Succeeded)

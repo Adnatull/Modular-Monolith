@@ -5,10 +5,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Models;
 using Module.Host.Extensions;
 using Module.Host.Middleware;
 using Module.Host.Permissions;
+using Module.Shared.Filters;
 using Module.Shared.Permissions;
 using Serilog;
 using System;
@@ -30,7 +30,11 @@ namespace Module.Host {
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers().ConfigureApplicationPartManager(manager => {
+            services.AddControllers(config => {
+                // Customizing modelState validation response
+                config.Filters.Add(new GlobalValidationFilter());
+
+            }).ConfigureApplicationPartManager(manager => {
                 // Clear all auto detected controllers.
                 manager.ApplicationParts.Clear();
 
@@ -38,52 +42,22 @@ namespace Module.Host {
                 manager.FeatureProviders.Add(new InternalControllerFeatureProvider());
             });
 
-            // Adds module2 with the route prefix identity
-            services.AddModule<IdentityModule.Startup>("identity", Configuration);
-
-            
-            services.AddSwaggerGen(options =>
-            {
-                options.SwaggerDoc("v1", new OpenApiInfo()
-                {
-                    Version = "v1",
-                    Title = "Modular Monolithic"
-                });
-                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme {
-                    In = ParameterLocation.Header,
-                    Description = "Please enter a valid token",
-                    Name = "Authorization",
-                    Type = SecuritySchemeType.Http,
-                    BearerFormat = "JWT",
-                    Scheme = "Bearer"
-                });
-                options.AddSecurityRequirement(new OpenApiSecurityRequirement
-                 {
-                    {
-                        new OpenApiSecurityScheme
-                        {
-                            Name = "Bearer",
-                            In = ParameterLocation.Header,
-                            Reference = new OpenApiReference
-                            {
-                                Id = "Bearer",
-                                Type = ReferenceType.SecurityScheme
-                            }
-                        },
-                        new List<string>()
-                    }
-                });
-            });            
-
             // Register a convention allowing to us to prefix routes to modules.
-            services.AddTransient<IPostConfigureOptions<MvcOptions>, ModuleRoutingMvcOptionsPostConfigure>();         
+            services.AddTransient<IPostConfigureOptions<MvcOptions>, ModuleRoutingMvcOptionsPostConfigure>();
 
-            
+            // Adds module2 with the route prefix identity
+            services.AddModule<IdentityModule.Startup>("identity", Configuration);       
+
+
+            services.AddSwagger();
+
+
             services.AddSingleton<IPermissionHelper, PermissionHelper>();
             services.AddAutoMapper();
 
             services.Configure<ApiBehaviorOptions>(options =>
             {
+                // Disabling Default API ModelState Validation Filter
                 options.SuppressModelStateInvalidFilter = true;
             });
         }
