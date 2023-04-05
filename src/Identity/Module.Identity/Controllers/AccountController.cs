@@ -4,7 +4,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Module.Identity.Core.DataTransferObjects;
 using Module.Identity.Core.IServices;
+using Module.Shared.Extensions;
+using Module.Shared.Response;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
 
@@ -27,9 +30,10 @@ namespace Module.Identity.Controllers {
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginUserDto loginUserDto) {
             try {
-                if (string.IsNullOrEmpty(loginUserDto.UserName) ||
-                string.IsNullOrEmpty(loginUserDto.Password))
-                    return BadRequest("Username and/or Password not specified");
+
+                if (!ModelState.IsValid) {
+                    return BadRequest(ModelState.ToValidationErrorResponse());
+                }
 
                 var rs = await _accountService.CheckPasswordAsync(loginUserDto);
                 if (rs.Succeeded) {
@@ -50,20 +54,33 @@ namespace Module.Identity.Controllers {
                         expires: DateTime.Now.AddMinutes(100),
                         signingCredentials: signinCredentials
                     );
-
-                    return Ok(new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken));
+                    var token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+                    return Ok(Response<string>.Success(token, "Success"));
                 }
             }
             catch {
-                return BadRequest
-                ("An error occurred in generating the token");
+                return BadRequest(Response<string>.Fail("An error occurred in generating the token"));                
             }
-            return Unauthorized();
+            return Unauthorized(Response<string>.Fail("Unauthorized"));
         }
 
         [HttpGet, Route("hello")]
         public IActionResult Hello() {
-            return Ok("Hello from Aurhorized Account Controller");
+            return Ok("Hello from Authorized Account Controller");
+        }
+
+        [HttpPost, Route("register")]
+        [AllowAnonymous]
+        [ProducesResponseType(typeof(Response<string>), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> Register(RegisterUserDto registerUserDto) {
+            if (!ModelState.IsValid) {
+                return BadRequest(ModelState.ToValidationErrorResponse());
+            }
+            var rs = await _accountService.RegisterUserAsync(registerUserDto);
+
+            if (rs.Succeeded)
+                return Ok(rs);   
+            return BadRequest(rs);
         }
     }
 }

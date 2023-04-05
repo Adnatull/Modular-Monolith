@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using Module.Host.Extensions;
 using Module.Host.Middleware;
 using Module.Host.Permissions;
 using Module.Shared.Permissions;
@@ -79,6 +80,12 @@ namespace Module.Host {
 
             
             services.AddSingleton<IPermissionHelper, PermissionHelper>();
+            services.AddAutoMapper();
+
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -112,6 +119,6 @@ namespace Module.Host {
                     module.Startup.Configure(builder, env);
                 });
             }            
-        }
+        }        
     }
 }
