@@ -46,7 +46,7 @@ namespace Module.Host {
             services.AddTransient<IPostConfigureOptions<MvcOptions>, ModuleRoutingMvcOptionsPostConfigure>();
 
             // Adds module2 with the route prefix identity
-            services.AddModule<IdentityModule.Startup>("identity", Configuration);       
+            services.AddModule<IdentityModule.WebApi.Startup>("identity", Configuration);       
 
 
             services.AddSwagger();

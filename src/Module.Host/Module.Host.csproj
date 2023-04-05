@@ -6,15 +6,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Identity\Module.Identity\Module.Identity.WebApi.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.15">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Identity\Module.Identity.WebApi\Module.Identity.WebApi.csproj" />
     </ItemGroup>
 </Project>

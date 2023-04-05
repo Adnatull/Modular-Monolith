@@ -13,7 +13,7 @@ using Module.Identity.Infrastructure.Extensions;
 using System.Text;
 using IStartup = Module.Shared.IStartup;
 
-namespace Module.Identity {
+namespace Module.Identity.WebApi {
     public class Startup : IStartup {
 
         

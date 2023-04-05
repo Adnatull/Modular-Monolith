@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Module.Identity.MigrationManager;
+using Module.Identity.WebApi.MigrationManager;
 using Serilog;
 using System;
 using System.IO;
