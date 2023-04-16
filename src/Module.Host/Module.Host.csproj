@@ -15,6 +15,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Identity\Module.Identity.WebApi\Module.Identity.WebApi.csproj" />
+      <ProjectReference Include="..\Module.Identity\Module.Identity.WebApi\Module.Identity.WebApi.csproj" />
     </ItemGroup>
 </Project>
