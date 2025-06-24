@@ -9,6 +9,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
 using System.Text;
+using Serilog;
 
 namespace Module.Identity.WebApi.Controllers {
 
@@ -52,7 +53,8 @@ namespace Module.Identity.WebApi.Controllers {
                     return Ok(Response<string>.Success(token, "Success"));
                 }
             }
-            catch {
+            catch (Exception e) {
+                Log.Error(e, e.ToString());
                 return BadRequest(Response<string>.Fail("An error occurred in generating the token"));                
             }
             return Unauthorized(Response<string>.Fail("Unauthorized"));
